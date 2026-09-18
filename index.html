@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en" data-theme="light" class="scroll-smooth">
 
@@ -11,7 +10,7 @@
     <meta name="author" content="Yohanees Sori Elalla" />
 
     <title>Yohanees Sori Elalla | Computer Engineer</title>
-
+    <link rel="icon" type="image/ico" href="icon.ico">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1471,7 +1470,7 @@
             color: var(--text-muted);
             font-size: 0.875rem;
         }
-        
+
         .cert-link {
             font-size: 0.85rem !important;
             font-weight: 600;
@@ -1479,7 +1478,7 @@
             transition: color 0.2s ease, transform 0.2s ease;
             white-space: nowrap;
         }
-        
+
         .certificate:hover .cert-link {
             color: var(--primary-hover) !important;
             transform: translateX(4px);
@@ -1876,14 +1875,16 @@
             max-width: 580px;
         }
 
-        .input-card, .module-card {
+        .input-card,
+        .module-card {
             flex-direction: column;
             padding: 14px;
             text-align: center;
             gap: 6px;
         }
 
-        .input-card strong, .module-card strong {
+        .input-card strong,
+        .module-card strong {
             font-size: 0.82rem;
         }
 
@@ -2052,6 +2053,7 @@
             .flow-trio-row {
                 grid-template-columns: 1fr;
             }
+
             .flow-duo-row {
                 grid-template-columns: 1fr;
             }
@@ -3529,7 +3531,7 @@
                     <div class="community-copy">
 
                         <div class="eyebrow">
-                            — COMMUNITY IMPACT
+                            COMMUNITY IMPACT
                         </div>
 
                         <h3>
@@ -3642,7 +3644,8 @@
                         </h3>
 
 
-                        <div class="certificate clickable-cert" onclick="openCertModal('Class Representative.jpg', 'Class Representative · 5 Years')">
+                        <div class="certificate clickable-cert"
+                            onclick="openCertModal('Class Representative.jpg', 'Class Representative · 5 Years')">
                             <i class="fa-solid fa-award"></i>
                             <div class="cert-content">
                                 <strong>Class Representative · 5 Years</strong>
@@ -3651,7 +3654,8 @@
                             <span class="cert-link">View &rarr;</span>
                         </div>
 
-                        <div class="certificate clickable-cert" onclick="openCertModal('GC President.jpg', 'Graduating Class (GC) President')">
+                        <div class="certificate clickable-cert"
+                            onclick="openCertModal('GC President.jpg', 'Graduating Class (GC) President')">
                             <i class="fa-solid fa-graduation-cap"></i>
                             <div class="cert-content">
                                 <strong>Graduating Class (GC) President</strong>
@@ -3660,7 +3664,8 @@
                             <span class="cert-link">View &rarr;</span>
                         </div>
 
-                        <div class="certificate clickable-cert" onclick="openCertModal('Leadership.jpg', 'Leadership Roles Certificate')">
+                        <div class="certificate clickable-cert"
+                            onclick="openCertModal('Leadership.jpg', 'Leadership Roles Certificate')">
                             <i class="fa-solid fa-medal"></i>
                             <div class="cert-content">
                                 <strong>Leadership Roles Certificate</strong>
@@ -3669,7 +3674,8 @@
                             <span class="cert-link">View &rarr;</span>
                         </div>
 
-                        <div class="certificate clickable-cert" onclick="openCertModal('Python Training.jpg', 'Community Python Trainer')">
+                        <div class="certificate clickable-cert"
+                            onclick="openCertModal('Python Training.jpg', 'Community Python Trainer')">
                             <i class="fa-brands fa-python"></i>
                             <div class="cert-content">
                                 <strong>Community Python Trainer</strong>
@@ -3678,7 +3684,8 @@
                             <span class="cert-link">View &rarr;</span>
                         </div>
 
-                        <div class="certificate clickable-cert" onclick="openCertModal('RDL.jpg', 'RDL Charity Service Recognition')">
+                        <div class="certificate clickable-cert"
+                            onclick="openCertModal('RDL.jpg', 'RDL Charity Service Recognition')">
                             <i class="fa-solid fa-hand-holding-heart"></i>
                             <div class="cert-content">
                                 <strong>RDL Charity Service Recognition</strong>
@@ -3687,7 +3694,8 @@
                             <span class="cert-link">View &rarr;</span>
                         </div>
 
-                        <div class="certificate clickable-cert" onclick="openCertModal('Notice Bord and Bot.jpg', 'Digital Notice Board & Student Voice Telegram Bot')">
+                        <div class="certificate clickable-cert"
+                            onclick="openCertModal('Notice Bord and Bot.jpg', 'Digital Notice Board & Student Voice Telegram Bot')">
                             <i class="fa-solid fa-robot"></i>
                             <div class="cert-content">
                                 <strong>Digital Notice Board & Student Voice Telegram Bot</strong>
@@ -4442,8 +4450,10 @@
             if (certModal) {
                 certModalTitle.textContent = title;
                 certImage.src = imageFile;
-                certDownloadBtn.href = imageFile;
-                
+
+                // Automatically link the corresponding PDF for download
+                certDownloadBtn.href = imageFile.replace(/\.jpg$/i, '.pdf');
+
                 certModal.classList.add("active");
                 certModal.setAttribute("aria-hidden", "false");
                 document.body.style.overflow = "hidden";
@@ -4455,7 +4465,7 @@
                 certModal.classList.remove("active");
                 certModal.setAttribute("aria-hidden", "true");
                 document.body.style.overflow = "";
-                
+
                 // Clear image src after closing to avoid memory leaks
                 setTimeout(() => {
                     certImage.src = "";
